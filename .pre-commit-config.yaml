@@ -1,0 +1,14 @@
+repos:
+  # Black - Code Formatter
+  - repo: https://github.com/psf/black
+    rev: 25.1.0
+    hooks:
+      - id: black
+        language_version: python3
+
+  # Flake8 - Linting (without line length complaints)
+  - repo: https://github.com/PyCQA/flake8
+    rev: 7.3.0
+    hooks:
+      - id: flake8
+        args: [--max-line-length=88] # Matches Black's default (88 chars)

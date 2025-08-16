@@ -69,12 +69,12 @@ def trapezoidal(
     grid_pts = _grid_pts_validator(grid_pts=grid_pts, min_grid_pts=2)
 
     grid = np.linspace(a, b, grid_pts)
-    total_integral = 0.0
+    integral = 0.0
 
     start_time = time.time()
     for i in range(grid_pts - 1):
-        total_integral += _integral_over_one_interval_trap(f, grid[i], grid[i + 1])
+        integral += _integral_over_one_interval_trap(f, grid[i], grid[i + 1])
     end_time = time.time()
     req_time = round(end_time - start_time, 4)
 
-    return TrapResults(total_integral, req_time)
+    return TrapResults(integral, req_time)

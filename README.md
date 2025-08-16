@@ -1,8 +1,10 @@
-# MA5892: Numerical Methods and Scientific Computing
-### JUL-NOV 2025
+# Numerical Methods & Scientific Computing: A Production-Grade Python Library
+### Course Project – MA5892
+#### JUL-NOV 2025
 
 ---
 **Author** : Om Satish Yeole   [![Static Badge](https://img.shields.io/badge/Linkedin-blue)](https://www.linkedin.com/in/om-yeole)
+
 **Course Instructor** : Dr. Priyanka Shukla   [![Static Badge](https://img.shields.io/badge/Website-blue)](https://math.iitm.ac.in/innerfaculty.php?fname=Priyanka%20Shukla)
 
 ---

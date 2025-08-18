@@ -9,6 +9,7 @@ def _str_to_sympy_convertor(expr_str: str) -> Callable[[float], float]:
         raise TypeError(
             f"Expected type of expr_str is str, instead got {type(expr_str)}"
         )
+    expr_str = expr_str.strip()
     expr: Expr | None = None
     try:
         expr: Expr = sympify(expr_str, convert_xor=True, rational=False)

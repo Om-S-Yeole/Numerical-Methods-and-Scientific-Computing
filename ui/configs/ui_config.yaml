@@ -1,0 +1,5 @@
+home_page:
+  title: Numerical Methods and Scientific Computing
+  methods:
+    - trapezoidal
+  integration_calc_backend_url: http://localhost:8000/api/v1/integrate

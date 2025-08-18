@@ -3,9 +3,13 @@ from argparse import Namespace
 from typing import Callable
 from nmsc._utils._helpers import _methods_dict
 from nmsc._utils._helpers import _str_to_sympy_convertor
+from _utils import _load_config
 
 
 def _arg_parser():
+
+    cli_cfg = _load_config("cli/configs/cli_configs.yaml")
+    parser_cfg: dict = cli_cfg.get("parser", {})
     parser = argparse.ArgumentParser(
         description="Numerical integration using different methods"
     )
@@ -13,7 +17,7 @@ def _arg_parser():
     parser.add_argument(
         "method",
         type=str,
-        choices=["trapezoidal"],
+        choices=parser_cfg.get("methods"),
         default=["trapezoidal"],
         help="Name of the numerical integration method",
     )

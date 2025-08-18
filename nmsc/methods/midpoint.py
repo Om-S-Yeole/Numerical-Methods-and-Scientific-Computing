@@ -1,12 +1,12 @@
 """
-Module implementing the trapezoidal rule for numerical integration.
+Module implementing the midpoint rule for numerical integration.
 
 Functions
 ---------
-_integral_over_one_interval_trap : Computes the integral over a single interval using
-the trapezoidal rule.
-trapezoidal : Computes the definite integral of a function over an interval using the
-trapezoidal rule.
+_integral_over_one_interval_midpoint : Computes the integral over a single interval
+using the midpoint rule.
+midpoint : Computes the definite integral of a function over an interval using the
+midpoint rule.
 """
 
 import time
@@ -21,22 +21,22 @@ from nmsc._utils._validations import (
 from nmsc._utils._helpers import MethodResults
 
 
-def _integral_over_one_interval_trap(
+def _integral_over_one_interval_midpoint(
     f: Callable[[float], float], x_i: float, x_i_1: float
 ) -> float:
 
     x_i, x_i_1 = _interval_bounds_validator(a=x_i, b=x_i_1)
     h = x_i_1 - x_i
-    integral = (h * (f(x_i) + f(x_i_1))) / 2
+    integral = h * f((x_i + x_i_1) / 2)
     return integral
 
 
 @validate_call(validate_return=True)
-def trapezoidal(
+def midpoint(
     f: Callable[[float], float], a: float, b: float, grid_pts: int = 50
 ) -> MethodResults:
     """
-    Compute the definite integral of a function over an interval using the trapezoidal
+    Compute the definite integral of a function over an interval using the midpoint
     rule.
 
     Parameters
@@ -52,8 +52,8 @@ def trapezoidal(
 
     Returns
     -------
-    tuple[float, float]
-        Tuple containing the computed integral and the time taken (in seconds).
+    MethodResults
+        Object containing the computed integral and the time taken (in seconds).
 
     Raises
     ------
@@ -69,7 +69,7 @@ def trapezoidal(
 
     start_time = time.time()
     for i in range(grid_pts - 1):
-        integral += _integral_over_one_interval_trap(f, grid[i], grid[i + 1])
+        integral += _integral_over_one_interval_midpoint(f, grid[i], grid[i + 1])
     end_time = time.time()
     req_time = round(end_time - start_time, 4)
 

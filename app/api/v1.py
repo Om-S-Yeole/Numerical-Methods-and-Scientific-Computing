@@ -2,13 +2,13 @@ from typing import Callable
 from fastapi import APIRouter, HTTPException
 from nmsc._utils._helpers import _methods_dict
 from nmsc._utils._helpers import _str_to_sympy_convertor
-from app.utils import IntegrationInputs
+from app.utils import IntegrationInputs, RombergIntegrationInputs
 
 router = APIRouter()
 
 
 @router.post("/integrate")
-def integrate(body: IntegrationInputs):
+def integrate(body: IntegrationInputs | RombergIntegrationInputs):
     body: dict = body.model_dump()
     method = _methods_dict[body.pop("method")]
 

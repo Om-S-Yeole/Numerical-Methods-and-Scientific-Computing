@@ -11,6 +11,16 @@ class IntegrationInputs(BaseModel):
     req_time: bool = Field(default=False)
 
 
+class RombergIntegrationInputs(BaseModel):
+    method: str
+    f: str
+    a: float
+    b: float
+    n: int
+    m: int
+    req_time: bool = Field(default=False)
+
+
 class IntegrationOutputs(BaseModel):
     integral: float
     req_time: Optional[float] = None

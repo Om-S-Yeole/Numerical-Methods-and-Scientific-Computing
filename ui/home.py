@@ -22,7 +22,23 @@ with st.form("integration_computation_form"):
         a = st.number_input(label="a", value=0.0)
     with col2:
         b = st.number_input(label="b", value=1.0)
-    grid_pts = st.number_input(label="Grid points", value=50, min_value=2, step=1)
+    col3, col4 = st.columns(2)
+    with col3:
+        n = st.number_input(
+            label="N", value=5, min_value=0, step=1, help="Only for Romberg method"
+        )
+    with col4:
+        m = st.number_input(
+            label="M", value=3, min_value=0, step=1, help="Only for Romberg method"
+        )
+    grid_pts = st.number_input(
+        label="Grid points",
+        value=50,
+        min_value=2,
+        step=1,
+        help="Do not use for Romberg method. It won't work.",
+    )
+
     req_time = st.checkbox("Display required time")
 
     submitted = st.form_submit_button("Submit", width="stretch")
@@ -34,9 +50,12 @@ with st.form("integration_computation_form"):
                 "f": function,
                 "a": a,
                 "b": b,
-                "grid_pts": grid_pts,
                 "req_time": req_time,
             }
+            if method_str == "romberg":
+                body = {**body, "n": n, "m": m}
+            else:
+                body = {**body, "grid_pts": grid_pts}
             json_body = json.dumps(body)
             response = requests.post(
                 url=home_cfg.get("integration_calc_backend_url"), data=json_body

@@ -3,3 +3,4 @@ parser:
     - trapezoidal
     - midpoint
     - simpson
+    - romberg

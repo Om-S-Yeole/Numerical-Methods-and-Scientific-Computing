@@ -32,6 +32,10 @@ def _arg_parser():
 
     parser.add_argument("b", type=float, help="Upper bound of integration")
 
+    parser.add_argument("--n", type=int, help="N for romberg method only")
+
+    parser.add_argument("--m", type=int, help="M for romberg method only")
+
     parser.add_argument(
         "--grid_pts", type=int, help="Number of grid points", default=50
     )
@@ -58,7 +62,15 @@ def main():
     grid_pts = args.grid_pts
     req_time = args.req_time
 
-    results = method(f, a, b, grid_pts)
+    results = None
+    if args.method == "romberg":
+        if not args.n:
+            raise ValueError("For romberg method, value of N is required to provide.")
+        if not args.m:
+            raise ValueError("For romberg method, value of M is required to provide.")
+        results = method(f, a, b, args.n, args.m)
+    else:
+        results = method(f, a, b, grid_pts)
 
     print("====== Results ======")
     print(f"Method: {args.method}")

@@ -3,4 +3,5 @@ home_page:
   methods:
     - trapezoidal
     - midpoint
+    - simpson
   integration_calc_backend_url: http://localhost:8000/api/v1/integrate

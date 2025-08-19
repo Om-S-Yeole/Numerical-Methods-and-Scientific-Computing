@@ -2,3 +2,4 @@ parser:
   methods:
     - trapezoidal
     - midpoint
+    - simpson

@@ -8,6 +8,9 @@
 **Course Instructor** : Dr. Priyanka Shukla   [![Static Badge](https://img.shields.io/badge/Website-blue)](https://math.iitm.ac.in/innerfaculty.php?fname=Priyanka%20Shukla)
 
 ---
+[Website is available here](https://numerical-methods-and-scientific.onrender.com/)
+
+---
 
 # A quick setup tour
 
@@ -141,20 +144,22 @@ python -m streamlit run .\ui\home.py
 ---
 
 # How to Set Up and Use Backend & Frontend Together
+1. **Make necessary changes to config file**
+  Change the `integration_calc_backend_url` field's value with `http://localhost:8000/api/v1/integrate`. This file is in directory `ui/configs/`
 
-1. **Start the FastAPI backend:**
+2. **Start the FastAPI backend:**
    ```bash
    uvicorn app.main:app --reload
    ```
    The backend will be available at `http://localhost:8000`.
 
-2. **Start the Streamlit frontend:**
+3. **Start the Streamlit frontend:**
    ```bash
    python -m streamlit run .\ui\home.py
    ```
    The frontend will be available at `http://localhost:8501`.
 
-3. **Use the frontend:**
+4. **Use the frontend:**
    - Enter the function, select the method, and provide parameters.
    - The frontend will send requests to the backend and display the integration result and computation time.
 

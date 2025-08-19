@@ -5,4 +5,4 @@ home_page:
     - midpoint
     - simpson
     - romberg
-  integration_calc_backend_url: http://localhost:8000/api/v1/integrate
+  integration_calc_backend_url: https://numerical-methods-and-scientific-9xca.onrender.com/api/v1/integrate

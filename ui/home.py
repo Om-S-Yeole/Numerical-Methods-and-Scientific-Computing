@@ -7,6 +7,7 @@ ui_cfg: dict = _load_config("ui/configs/ui_config.yaml")
 home_cfg: dict = ui_cfg.get("home_page", {})
 
 st.title(home_cfg.get("title", "Numerical Methods and Scientific Computing"))
+st.markdown(":heart: :rainbow[Om Yeole]")
 st.divider()
 st.subheader(
     "Calculate the numerical integration of various functions using different methods"

@@ -34,7 +34,7 @@ with st.form("integration_computation_form"):
         )
     grid_pts = st.number_input(
         label="Grid points",
-        value=50,
+        value=51,
         min_value=2,
         step=1,
         help="Do not use for Romberg method. It won't work.",

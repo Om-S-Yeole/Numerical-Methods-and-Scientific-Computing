@@ -145,6 +145,7 @@ python -m streamlit run .\ui\home.py
 
 # How to Set Up and Use Backend & Frontend Together
 1. **Make necessary changes to config file**
+
   Change the `integration_calc_backend_url` field's value with `http://localhost:8000/api/v1/integrate`. This file is in directory `ui/configs/`
 
 2. **Start the FastAPI backend:**
@@ -178,7 +179,7 @@ The library currently supports the following numerical integration methods:
   - Approximates the integral using the midpoint of each subinterval.
 
 - **Simpson's Rule**
-  - `simpson(f, a, b, grid_pts=50)` (grid_pts must be even)
+  - `simpson(f, a, b, grid_pts=51)` (grid_pts must be odd)
   - Approximates the integral using parabolic arcs over pairs of intervals.
 
 - **Romberg Integration**

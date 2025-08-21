@@ -37,7 +37,7 @@ def _arg_parser():
     parser.add_argument("--m", type=int, help="M for romberg method only")
 
     parser.add_argument(
-        "--grid_pts", type=int, help="Number of grid points", default=50
+        "--grid_pts", type=int, help="Number of grid points", default=51
     )
 
     parser.add_argument(

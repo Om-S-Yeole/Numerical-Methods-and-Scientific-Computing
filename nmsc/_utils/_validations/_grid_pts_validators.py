@@ -31,9 +31,9 @@ def _grid_pts_validator(
 def _grid_pts_validator_simpson(
     grid_pts: int, min_grid_pts: int, max_grid_pts: int = 200000
 ) -> int:
-    if grid_pts % 2 != 0:
+    if grid_pts % 2 == 0:
         raise ValueError(
-            "Expected even number of grid points when using simpson method "
+            "Expected odd number of grid points when using simpson method "
             f"Got {grid_pts}"
         )
     grid_pts = _grid_pts_validator(grid_pts, min_grid_pts, max_grid_pts)

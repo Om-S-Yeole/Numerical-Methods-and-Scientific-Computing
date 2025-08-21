@@ -34,7 +34,7 @@ def _integral_over_one_interval_simpson(
 
 @validate_call(validate_return=True)
 def simpson(
-    f: Callable[[float], float], a: float, b: float, grid_pts: int = 50
+    f: Callable[[float], float], a: float, b: float, grid_pts: int = 51
 ) -> MethodResults:
     """
     Compute the definite integral of a function over an interval using Simpson's rule.
@@ -48,7 +48,7 @@ def simpson(
     b : float
         Upper bound of the integration interval.
     grid_pts : int, optional
-        Number of grid points to use (default is 50, minimum is 3).
+        Number of grid points to use (default is 51, minimum is 3).
 
     Returns
     -------

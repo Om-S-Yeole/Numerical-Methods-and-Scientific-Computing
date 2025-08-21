@@ -25,7 +25,7 @@ def test_simpson_linear():
         return x
 
     # Integral of f(x) = x over [0, 1] is 0.5
-    result = simpson(f, 0.0, 1.0, grid_pts=12)
+    result = simpson(f, 0.0, 1.0, grid_pts=11)
     assert isinstance(result, MethodResults)
     # Allow larger tolerance due to grid spacing and method implementation
     assert abs(result.integral - 0.5) < 0.1
@@ -36,7 +36,7 @@ def test_simpson_quadratic():
         return x**2
 
     # Integral of x^2 over [0, 1] is 1/3
-    result = simpson(f, 0.0, 1.0, grid_pts=102)
+    result = simpson(f, 0.0, 1.0, grid_pts=101)
     # Allow larger tolerance due to grid spacing and method implementation
     assert abs(result.integral - (1 / 3)) < 0.02
 
